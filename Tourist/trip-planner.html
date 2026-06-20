@@ -28,6 +28,148 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+ 
+.trip-planner-section{
+    background:#f7f9fc;
+}
+
+.trip-summary-card{
+    background:#fff;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.ai-badge{
+    background:linear-gradient(135deg,#86B817,#0dcaf0);
+    color:#fff;
+    padding:8px 16px;
+    border-radius:30px;
+    font-size:12px;
+    display:inline-block;
+    margin-bottom:15px;
+}
+
+.trip-summary-card h2{
+    font-weight:800;
+}
+
+.trip-meta{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.trip-meta span{
+    font-size:14px;
+    color:#666;
+}
+
+.budget-box{
+    background:linear-gradient(135deg,#86B817,#0dcaf0);
+    color:#fff;
+    padding:20px;
+    border-radius:20px;
+}
+
+.timeline{
+    position:relative;
+    margin-top:40px;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50px;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:#86B817;
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:120px;
+    margin-bottom:50px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:0;
+    top:20px;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#86B817,#0dcaf0);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+.timeline-card{
+    background:#fff;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.timeline-card img{
+    height:280px;
+    width:100%;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+.trip-steps{
+    margin:20px 0;
+    padding-left:20px;
+}
+
+.trip-steps li{
+    margin-bottom:10px;
+}
+
+.info-card{
+    background:#f8f9fa;
+    border-radius:15px;
+    padding:15px;
+    height:100%;
+    transition:.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+}
+
+.info-card h5{
+    color:#86B817;
+    margin-bottom:10px;
+}
+
+@media(max-width:768px){
+
+    .timeline::before{
+        display:none;
+    }
+
+    .timeline-item{
+        padding-left:0;
+    }
+
+    .timeline-dot{
+        position:relative;
+        margin-bottom:20px;
+        width:80px;
+        height:80px;
+    }
+
+}
+
+    </style>
 </head>
 
 <body>
@@ -77,9 +219,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="index.html" class="nav-item nav-link ">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Packages</a>
+                    <a href="service.html" class="nav-item nav-link active">Packages</a>
                     <a href="destination.html" class="nav-item nav-link">Feedback</a>
                     <a href="destination.html" class="nav-item nav-link">Sign In</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -93,7 +235,7 @@
             <div class="container py-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white animated slideInDown">About Us</h1>
+                        <h1 class="display-3 text-white animated slideInDown">Our Packages</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -109,46 +251,176 @@
     <!-- Navbar & Hero End -->
 
 
-    <!-- About Start -->
-    <div class="container-fluid py-5">
+   <div class="container-fluid py-2">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/about.jpg" alt="" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">Welcome to <span class="text-primary">Tourist</span></h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>First Class Flights</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked Hotels</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>5 Star Accommodations</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest Model Vehicles</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
-                </div>
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>
+                <h1 class="mb-5 ">Trip Planner</h1>
             </div>
+           
         </div>
     </div>
-    <!-- About End -->
+
+
+<section class="trip-planner-section py-5">
+
+    <div class="container">
+
+        <!-- Trip Summary -->
+        <div class="trip-summary-card mb-5">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <span class="ai-badge">
+                        AI Generated Itinerary
+                    </span>
+
+                    <h2>
+                        Kolkata <i class="fas fa-plane"></i> Varanasi
+                    </h2>
+
+                    <div class="trip-meta">
+
+                        <span>
+                            <i class="fa fa-calendar"></i>
+                            10 Feb 2026
+                        </span>
+
+                        <span>
+                            <i class="fa fa-calendar"></i>
+                            15 Feb 2026
+                        </span>
+
+                        <span>
+                            <i class="fa fa-moon"></i>
+                            5 Days / 4 Nights
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 text-end">
+
+                    <div class="budget-box">
+
+                        <span>Estimated Budget</span>
+                        <h3>₹15,500</h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Timeline -->
+
+        <div class="timeline">
+
+            <!-- Day 1 -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    Day 1
+                </div>
+
+                <div class="timeline-card">
+
+                    <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc"
+                        class="img-fluid rounded">
+
+                    <h3>
+                        Arrival at Varanasi
+                    </h3>
+
+                    <ul class="trip-steps">
+                        <li>Train Arrival at Varanasi Junction (08:00 AM)</li>
+                        <li>Check-in Hotel Surya</li>
+                        <li>Lunch at Kashi Chat Bhandar</li>
+                        <li>Visit Dashashwamedh Ghat</li>
+                        <li>Attend Ganga Aarti at 6:30 PM</li>
+                    </ul>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <div class="info-card">
+                                <h5>Hotel</h5>
+                                <p>Hotel Surya</p>
+                                <p>+91 9876543210</p>
+                                <p>₹2200/Night</p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="info-card">
+                                <h5>Restaurant</h5>
+                                <p>Kashi Chat Bhandar</p>
+                                <p>0.5 KM</p>
+                                <p>₹200 Avg Cost</p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="info-card">
+                                <h5>Transport</h5>
+                                <p>Auto / Cab</p>
+                                <p>₹250 Approx</p>
+                                <p>10 Minutes</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Day 2 -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    Day 2
+                </div>
+
+                <div class="timeline-card">
+
+                    <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86"
+                        class="img-fluid rounded">
+
+                    <h3>
+                        Temple & Heritage Tour
+                    </h3>
+
+                    <ul class="trip-steps">
+                        <li>Kashi Vishwanath Temple</li>
+                        <li>Annapurna Temple</li>
+                        <li>Banaras Hindu University</li>
+                        <li>Evening Shopping</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
         
 
     <!-- Footer Start -->
