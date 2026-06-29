@@ -1,5 +1,50 @@
+import { useNavigate } from 'react-router-dom'
 import video from '../assets/img/hero.mp4'
+import { useEffect, useState } from 'react';
+import { destinationList } from '../Services/destination';
+
 const HeroVideo = ()=>{
+    const navigate  = useNavigate();
+    const [destData,setDestdata] = useState([])
+    const [formData,setFormData] = useState({
+        from_destination : '',
+        to_destination :"",
+        start_date :"",
+        end_date:""
+    })
+    const handleChange = (e)=>{
+        setFormData({
+            ...formData,
+            [e.target.name] : e.target.value
+        })
+    }
+
+    const getDestination = async()=>{
+        try {
+           const res = await destinationList()
+          
+           if(res.status)
+           {
+            const destination = res.data.destinations;
+            setDestdata(destination);
+            console.log(res.data.destinations);
+            
+           }
+         
+        } catch (error) {
+          console.log  (error)
+        }
+    }
+
+    useEffect(()=>{
+        getDestination()
+    },[])
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        navigate(`/PackagesSearch?destination_id=${formData.to_destination}&start_date=${formData.start_date}`)
+        
+    }
     return(
         <>
           <div className="container-fluid hero-header position-relative overflow-hidden">
@@ -34,26 +79,44 @@ const HeroVideo = ()=>{
                                 Plan Your Journey
                             </h4>
 
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
                                     <label className="form-label text-white">From</label>
-                                    <input type="text" className="form-control custom-input" placeholder="Kolkata"/>
+                                    <input onChange={handleChange} value={formData.from_destination} type="text" name='from_destination' className="form-control custom-input" placeholder="Kolkata"/>
                                 </div>
 
                                 <div className="mb-3">
                                     <label className="form-label text-white">To</label>
-                                    <input type="text" className="form-control custom-input" placeholder="Goa"/>
+                                    <select
+                                            onChange={handleChange}
+                                            name="to_destination"
+                                            className="form-control custom-input"
+                                            value={formData.to_destination}
+                                        >
+                                            <option value="" style={{"color":"#000"}} disabled>Select Destination</option>
+
+                                           {
+                                            destData.map((item)=>{
+                                                return (
+                                                    <option key={item.id} value={item.id} style={{"color":"#000"}}>
+                                                        {item.destination_name} - {item.state}
+                                                    </option>
+                                                )
+                                            })
+                                        }
+
+                                        </select>
                                 </div>
 
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
                                         <label className="form-label text-white">Start Date</label>
-                                        <input type="date" className="form-control custom-input"/>
+                                        <input type="date" value={formData.start_date} onChange={handleChange} name='start_date' className="form-control custom-input"/>
                                     </div>
 
                                     <div className="col-md-6 mb-3">
                                         <label className="form-label text-white">End Date</label>
-                                        <input type="date" className="form-control custom-input"/>
+                                        <input type="date" value={formData.end_date} onChange={handleChange} name='end_date' className="form-control custom-input"/>
                                     </div>
                                 </div>
 
